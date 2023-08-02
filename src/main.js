@@ -9,4 +9,7 @@ import App from "@/App.vue";
 
 library.add(faSearch);
 
-createApp(App).use(router).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
+createApp(App)
+  .use(router)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .mount("#app");

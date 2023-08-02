@@ -16,7 +16,8 @@ describe("TheSubnav", () => {
         },
       },
     });
-  }
+  };
+
   describe("when user is on jobs page", () => {
     it("displays job count", () => {
       const routeName = "JobResults";
@@ -32,10 +33,9 @@ describe("TheSubnav", () => {
     it("does NOT display job count", () => {
       const routeName = "Home";
 
-        renderTheSubnav(routeName);
+      renderTheSubnav(routeName);
 
       const jobCount = screen.queryByText("1653");
-
       expect(jobCount).not.toBeInTheDocument();
     });
   });

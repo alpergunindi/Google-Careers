@@ -1,5 +1,5 @@
 <template>
-<main-nav />
+  <main-nav />
   <router-view />
 </template>
 
@@ -9,5 +9,5 @@ import MainNav from "@/components/Navigation/MainNav.vue";
 export default {
   name: "App",
   components: { MainNav },
-  };
+};
 </script>

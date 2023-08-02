@@ -6,9 +6,9 @@ import MainNav from "@/components/Navigation/MainNav.vue";
 
 describe("MainNav", () => {
   const renderMainNav = () => {
-const $route = {
-  name: "Home",
-};
+    const $route = {
+      name: "Home",
+    };
 
     render(MainNav, {
       global: {
