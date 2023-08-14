@@ -11,6 +11,7 @@
         <div class="flex items-center justify-center">
           <router-link
           v-if="previousPage"
+          role="link"
           :to="{ name: 'JobResults', query: { page: previousPage } }"
           class="mx-3 text-sm font-semibold text-brand-blue-1"
           >
@@ -19,6 +20,7 @@
 
         <router-link
         v-if="nextPage"
+        role="link"
         :to="{ name: 'JobResults', query: { page: nextPage } }"
         class="mx-3 text-sm font-semibold text-brand-blue-1"
         >
@@ -54,7 +56,7 @@ export default {
     },
     nextPage() {
       const nextPage = this.currentPage + 1;
-      const maxPage = this.jobs.length / 10;
+      const maxPage = Math.ceil(this.jobs.length / 10);
       return nextPage <= maxPage ? nextPage : undefined;
     },
     displayedJobs() {
@@ -62,10 +64,11 @@ export default {
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
       return this.jobs.slice(firstJobIndex, lastJobIndex);
-    }
+    },
   },
   async mounted() {
-    const response = await axios.get("http://localhost:3000/jobs");
+    const baseUrl = import.meta.env.VITE_APP_API_URL;
+    const response = await axios.get(`${baseUrl}/jobs`);
     this.jobs = response.data;
   },
 };
